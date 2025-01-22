@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import specs.response.IncorrectDataResponse;
 
-class PutPostTests extends BaseTest {
+class PutTodoTests extends BaseTest {
 
     @Test
     @DisplayName("Success: Save a valid put")

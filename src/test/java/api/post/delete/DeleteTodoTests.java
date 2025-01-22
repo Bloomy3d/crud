@@ -5,7 +5,7 @@ import api.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class DeletePostTests extends BaseTest {
+class DeleteTodoTests extends BaseTest {
 
     @Test
     @PreparePost(1)

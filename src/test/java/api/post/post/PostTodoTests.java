@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import specs.response.IncorrectDataResponse;
 
-class PostPostTests extends BaseTest {
+class PostTodoTests extends BaseTest {
 
     @Test
     @DisplayName("Success: Save a valid post")

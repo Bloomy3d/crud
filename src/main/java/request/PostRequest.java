@@ -2,12 +2,12 @@ package request;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import models.Post;
+import models.Todo;
 import request.interfaces.CrudInterface;
 
 import static io.restassured.RestAssured.given;
 
-public class PostRequest extends Request implements CrudInterface<Post, Integer> {
+public class PostRequest extends Request implements CrudInterface<Todo, Integer> {
     private static final String POST_ENDPOINT = "posts/";
 
     public PostRequest(RequestSpecification requestSpecification) {
@@ -15,7 +15,7 @@ public class PostRequest extends Request implements CrudInterface<Post, Integer>
     }
 
     @Override
-    public Response save(Post entity) {
+    public Response save(Todo entity) {
         return given()
                 .spec(requestSpecification)
                 .body(entity)
@@ -40,7 +40,7 @@ public class PostRequest extends Request implements CrudInterface<Post, Integer>
     }
 
     @Override
-    public Response update(long id, Post entity) {
+    public Response update(long id, Todo entity) {
         return given()
                 .spec(requestSpecification)
                 .body(entity)
