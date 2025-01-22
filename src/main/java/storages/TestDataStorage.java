@@ -17,6 +17,7 @@ public class TestDataStorage {
         }
         return instance;
     }
+
     public void addData(Todo todo) {storage.put(todo.getId(), todo);}
 
     public HashMap<Long, Todo> getStorage() {return storage;}
