@@ -4,7 +4,7 @@ import annotations.BeforeEachExtension;
 import generators.RandomDataGenerator;
 import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
-import models.Post;
+import models.Todo;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,12 +19,12 @@ import storages.TestDataStorage;
 public class BaseTest {
     protected PostRequester postRequester;
     protected SoftAssertions assertions;
-    protected static Post request;
+    protected static Todo request;
 
     @BeforeAll
     public static void setup() {
         RestAssured.defaultParser = Parser.JSON;
-        request = RandomDataGenerator.generateRandomData(Post.class);
+        request = RandomDataGenerator.generateRandomData(Todo.class);
     }
 
     @BeforeEach

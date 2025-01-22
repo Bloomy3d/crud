@@ -1,14 +1,14 @@
 package request;
 
 import io.restassured.specification.RequestSpecification;
-import models.Post;
+import models.Todo;
 import org.apache.http.HttpStatus;
 import request.interfaces.CrudInterface;
 import storages.TestDataStorage;
 
 import java.util.List;
 
-public class ValidatedPostRequest extends Request implements CrudInterface<Post, Integer> {
+public class ValidatedPostRequest extends Request implements CrudInterface<Todo, Integer> {
 
     private PostRequest postRequest;
 
@@ -18,7 +18,7 @@ public class ValidatedPostRequest extends Request implements CrudInterface<Post,
     }
 
     @Override
-    public String save(Post entity) {
+    public String save(Todo entity) {
         String response =  postRequest.save(entity)
                 .then()
                 .assertThat()
@@ -29,28 +29,28 @@ public class ValidatedPostRequest extends Request implements CrudInterface<Post,
     }
 
     @Override
-    public Post findById(Integer integer) {
+    public Todo findById(Integer integer) {
        return postRequest.findById(integer)
                 .then()
                 .statusCode(HttpStatus.SC_OK)
-                .extract().as(Post.class);
+                .extract().as(Todo.class);
     }
 
     @Override
-    public List<Post> findAll() {
-        Post[] posts = postRequest.findAll()
+    public List<Todo> findAll() {
+        Todo[] todos = postRequest.findAll()
                 .then()
                 .statusCode(HttpStatus.SC_OK)
-                .extract().as(Post[].class);
-        return List.of(posts);
+                .extract().as(Todo[].class);
+        return List.of(todos);
     }
 
     @Override
-    public Object update(long integer, Post entity) {
+    public Object update(long integer, Todo entity) {
         return postRequest.update(integer, entity)
                 .then()
                 .statusCode(HttpStatus.SC_OK)
-                .extract().as(Post.class);
+                .extract().as(Todo.class);
     }
 
     @Override

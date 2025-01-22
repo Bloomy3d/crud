@@ -1,7 +1,7 @@
 package annotations;
 
 import generators.RandomDataGenerator;
-import models.Post;
+import models.Todo;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import request.PostRequest;
@@ -24,7 +24,7 @@ public class BeforeEachExtension implements BeforeEachCallback {
         if (preparePost != null) {
             for (int i = 0; i < preparePost.value(); i++) {
                 new PostRequest(RequestSpec.unAuthenticated())
-                        .save(RandomDataGenerator.generateRandomData(Post.class));
+                        .save(RandomDataGenerator.generateRandomData(Todo.class));
             }
         }
     }
